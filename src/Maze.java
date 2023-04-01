@@ -1,7 +1,8 @@
 /**
  * Creates a Maze made up of MazeCells
- * @author Ms. Namasivayam
+ * @author Ms. Namasivayam and Kate Little
  * @version 03/04/2022
+ * edited 3/31/2023
  */
 
 import java.io.File;
@@ -22,7 +23,7 @@ public class Maze {
     }
 
     /**
-     * Create the 2D array of MazeCells from the
+     * Creates the 2D array of MazeCells from the
      * provided file and save it to this.mazeGrid
      * @param filename The file to create the maze from
      */
@@ -126,7 +127,7 @@ public class Maze {
         }
     }
 
-    /** Getters **/
+    // Getters
     public MazeCell getStartCell() {
         return this.startCell;
     }
@@ -141,12 +142,14 @@ public class Maze {
 
     /**
      * Determines if the cell is valid to visit.
-     * @param row the int row val
-     * @param col the int col val
-     * @return boolean true/false
+     * Variable row the int row val
+     * Variable col the int col val
+     * Returns boolean true/false
      */
     public boolean isValidCell(int row, int col) {
-        // TODO: Complete this function
-        return true;
+        // If the cell is not a wall and it is not explored and both the row & col exist in the array
+        return row < numRows && row >= 0 && col < numCols && col >= 0 && !mazeGrid[row][col].isWall() &&
+                !mazeGrid[row][col].isExplored();
     }
 }
+
